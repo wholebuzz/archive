@@ -2,6 +2,29 @@
 
 Archive database using sorted chains of JSON array blocks. Each block is represented as a file (with random filename) on Cloud Storage and structured as an [ArchiveBlock](docs/interfaces/archiveblock.md) JSON object. Uses `@wholebuzz/fs` for atomic appends to Cloud Storage.
 
+## Example
+
+```
+const archive = new ArchiveDatabaseServer<Event>(
+  'news',
+  [
+    {
+      name: 'publisher',
+      getter: getEventPublishers,
+      sorter: compareEventReverse,
+      blockDatabase: new FileStorageArchiveBlockDatabase<Event>(
+        fileSystem,
+        blockStorageDirectory,
+        parseEventJSON
+      ),
+      tipDatabase: new FileStorageArchiveTipDatabase(fileSystem, tipStorageDirectory, sha1),
+    },
+  ])
+
+await archive.addItems(item);
+const tipBlock = await archive.getTipBlock(archive.indices[0], publisher)
+```
+
 ## Table of contents
 
 ### Classes
