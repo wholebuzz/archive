@@ -14,10 +14,13 @@ const archive = new ArchiveDatabaseServer<Event>(
       sorter: compareEventReverse,
       blockDatabase: new FileStorageArchiveBlockDatabase<Event>(
         fileSystem,
-        blockStorageDirectory,
+        'gs://archive',
         parseEventJSON
       ),
-      tipDatabase: new FileStorageArchiveTipDatabase(fileSystem, tipStorageDirectory, sha1),
+      tipDatabase: new FileStorageArchiveTipDatabase(
+        fileSystem,
+        'gs://archive-index',
+        sha1),
     },
   ])
 

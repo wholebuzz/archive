@@ -1,12 +1,12 @@
 {
   "name": "@wholebuzz/archive",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Archive database using sorted chains of JSON array blocks",
   "author": "wholebuzz",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wholebuzz/arachive.git"
+    "url": "https://github.com/wholebuzz/archive.git"
   },
   "types": "./lib/index.d.ts",
   "scripts": {
