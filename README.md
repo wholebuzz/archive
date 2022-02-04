@@ -1,10 +1,10 @@
-# @wholebuzz/archive
+# @wholebuzz/archive ![image](https://img.shields.io/npm/v/@wholebuzz/archive) [![test](https://github.com/wholebuzz/dbcp/actions/workflows/test.yaml/badge.svg)](https://github.com/wholebuzz/archive/actions/workflows/test.yaml)
 
 Archive database using sorted chains of JSON array blocks. Each block is represented as a file (with random filename) on Cloud Storage and structured as an [ArchiveBlock](docs/interfaces/archiveblock.md) JSON object. Uses `@wholebuzz/fs` for atomic appends to Cloud Storage.
 
 ## Example
 
-```
+```typescript
 const archive = new ArchiveDatabaseServer<Event>(
   'news',
   [
